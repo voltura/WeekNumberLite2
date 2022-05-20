@@ -63,16 +63,10 @@ namespace WeekNumberLite2
 
         #region Private event handlers
 
-        private void OnApplicationExit(object? sender, EventArgs e)
-        {
-            Cleanup(false);
-        }
+        private void OnApplicationExit(object? sender, EventArgs e) => Cleanup(false);
 
         [SupportedOSPlatform("windows")]
-        private void OnTimerTick(object? sender, EventArgs e)
-        {
-            UpdateIcon();
-        }
+        private void OnTimerTick(object? sender, EventArgs e) => UpdateIcon();
 
         [SupportedOSPlatform("windows")]
         private void UpdateIcon()
