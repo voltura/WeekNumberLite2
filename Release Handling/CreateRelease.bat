@@ -268,8 +268,8 @@ GOTO :EOF
 :UPLOAD_RELEASE_ASSETS
 CALL :DISP_MSG "Uploading release '%NAME%' assets to Github..." 1
 PUSHD "%SCRIPT_DIR%\..\Releases\%VERSION%"
-	CALL :UPLOAD_FILE WeekNumber_Lite_2.zip
-	CALL :UPLOAD_FILE WeekNumber_Lite_2.zip.MD5
+	CALL :UPLOAD_FILE WeekNumberLite2.zip
+	CALL :UPLOAD_FILE WeekNumberLite2.zip.MD5
 	CALL :UPLOAD_FILE WeekNumberLite2.exe
 	CALL :UPLOAD_FILE WeekNumberLite2.exe.MD5
 	CALL :UPLOAD_FILE VERSION.TXT
