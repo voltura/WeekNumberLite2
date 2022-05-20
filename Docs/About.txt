@@ -1,0 +1,10 @@
+﻿Hi,
+
+Created this Lightweight version of the taskbar area application WeekNumber since Windows Defender reported WeekNumber as a trojan (FALSE!) 
+and some people might still want the app without Microsoft blocking the app and having to unblock it or simply do not know how and loose the app feature.
+
+The only features this "Lite" version of WeekNumber has is to display the current week number in the Windows System Tray Area via its icon.
+There are no settings or such for this version; cannot change icon color, auto-update or anything else fancy that exists in the original WeekNumber app.
+
+Cheers,
+  Joakim
