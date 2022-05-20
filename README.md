@@ -15,7 +15,8 @@ Always see the current week number in the system tray area in Windows taskbar.
 
 <img width="271" alt="image" src="https://user-images.githubusercontent.com/2292809/155431247-bc7c45c9-d748-408e-87ab-e2605f0da186.png">
 
-<img width="191" alt="image" src="https://user-images.githubusercontent.com/2292809/155431451-35fdb731-c793-4101-91d8-82ed3c1786c6.png">
+<img width="175" alt="image" src="https://user-images.githubusercontent.com/2292809/169479743-3d64a051-a138-44bb-a2e6-e66c0a061032.png">
+
 
 ## Installation
 Download WeekNumberLite2.exe and run to start.
