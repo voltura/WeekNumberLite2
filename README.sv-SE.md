@@ -14,7 +14,7 @@ Aktuellt veckonummer visas som en ikon i systemfältet i Windows aktivitetsfält
 ## Skärmbilder
 <img width="21" alt="image" src="https://user-images.githubusercontent.com/2292809/155431807-4d684e31-83a1-4d71-8e89-b7f0a0630199.png">
 
-<img width="183" alt="image" src="https://user-images.githubusercontent.com/2292809/155431823-3d7e8518-f04d-4a4d-a923-18bf1a915ef8.png">
+<img width="175" alt="image" src="https://user-images.githubusercontent.com/2292809/169479743-3d64a051-a138-44bb-a2e6-e66c0a061032.png">
 
 
 ## Installation
