@@ -49,7 +49,9 @@ namespace WeekNumberLite2
             try
             {
                 string weekDayPrefix = string.Empty;
-                if (Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish)
+                string longDateString = DateTime.Now.ToLongDateString();
+                const string SWEDISH_LONG_DATE_PREFIX_STRING = "den ";
+                if (Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish || longDateString.StartsWith(SWEDISH_LONG_DATE_PREFIX_STRING))
                     weekDayPrefix = Message.SWEDISH_DAY_OF_WEEK_PREFIX[(int)DateTime.Now.DayOfWeek];
                 if (notifyIcon != null)
                 {
