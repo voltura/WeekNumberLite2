@@ -44,7 +44,7 @@ SET "REPO_NAME=WeekNumberLite2"
 :: v%VERSION%
 SET "TAG_NAME=" 
 :: BRANCH (master)
-SET "TARGET_COMMITISH=master"
+SET "TARGET_COMMITISH=main"
 :: WeekNumber Lite 2 %VERSION%
 SET "NAME="
 ::"Release of version %VERSION%"
@@ -245,7 +245,7 @@ GOTO :EOF
 IF "%PUBLISH_REL%" NEQ "TRUE" GOTO :EOF
 CALL :DISP_MSG "Publishing release to Github..." 1
 SET "TAG_NAME=v%VERSION%"
-SET "NAME=WeekNumber Lite 2 %VERSION%"
+SET "NAME=WeekNumber Lite 2 v%VERSION%"
 SET "BODY=Release of version %VERSION%"
 "%CURL%" -s -H "Accept: application/vnd.github.v3+json" -H "Authorization: token %GITHUB_ACCESS_TOKEN%" -H "Content-Type:application/json" "https://api.github.com/repos/%REPO_OWNER%/%REPO_NAME%/releases" -d "{ \"tag_name\": \"%TAG_NAME%\", \"target_commitish\": \"%TARGET_COMMITISH%\",\"name\": \"%NAME%\",\"body\": \"%BODY%\",\"draft\": %DRAFT%, \"prerelease\": %PRERELEASE%}" >"%SCRIPT_DIR%\release_info.txt"
 SET CURL_RESULT=%ERRORLEVEL%
