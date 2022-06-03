@@ -27,8 +27,7 @@ IF "%SCRIPT_PARAMETER%" EQU "UP" SET "UPDATE_VER=TRUE" && SET "PUBLISH_REL=TRUE"
 SET "SCRIPT_DIR=%~dp0"
 SET "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
 SET "RELEASE_MANAGER=%SCRIPT_DIR%\ReleaseManager.bat"
-SET "PUBLISH_FOLDER=%SCRIPT_DIR%\..\bin\Release\net6.0-windows\win-x86\publish\win-x86"
-
+SET "PUBLISH_FOLDER=%SCRIPT_DIR%\..\bin\Release\net6.0-windows\win-x64\publish"
 IF "%SCRIPT_PARAMETER%" EQU "" (
 	START "Release Manager" "%RELEASE_MANAGER%"
 	EXIT

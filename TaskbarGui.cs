@@ -36,7 +36,7 @@ namespace WeekNumberLite2
         /// Updates icon on GUI with given week number
         /// </summary>
         /// <param name="weekNumber">The week number to display on icon</param>
-        [SupportedOSPlatform("windows")] 
+        [SupportedOSPlatform("windows")]
         public void UpdateIcon(int weekNumber) => UpdateIcon(weekNumber, ref _notifyIcon);
 
         #endregion Public UpdateIcon method
