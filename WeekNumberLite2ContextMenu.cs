@@ -25,14 +25,21 @@ namespace WeekNumberLite2
 
         #region Private event handling
 
-        private static void ExitMenuClick(object? o, EventArgs e) => Application.Exit();
+        private static void ExitMenuClick(object? o, EventArgs e)
+        {
+            Application.Exit();
+        }
 
         private void AboutClick(object? o, EventArgs e)
         {
             ToolStripMenuItem? mi = o is null ? null : (ToolStripMenuItem)o;
             try
             {
-                if (mi != null) mi.Enabled = false;
+                if (mi != null)
+                {
+                    mi.Enabled = false;
+                }
+
                 Forms.MessageForm.LogAndDisplayLinkMessage(Resources.About, Resources.APPLICATION_URL);
             }
             finally
@@ -52,8 +59,8 @@ namespace WeekNumberLite2
             ToolStripMenuItem ExitMenu = new(Resources.ExitMenu);
             AboutMenu.Click += AboutClick;
             ExitMenu.Click += ExitMenuClick;
-            ContextMenu.Items.Add(AboutMenu);
-            ContextMenu.Items.Add(ExitMenu);
+            _ = ContextMenu.Items.Add(AboutMenu);
+            _ = ContextMenu.Items.Add(ExitMenu);
         }
 
         #endregion Private method for context menu creation
@@ -62,7 +69,10 @@ namespace WeekNumberLite2
 
         private static void EnableMenuItem(ToolStripMenuItem? mi)
         {
-            if (mi != null) mi.Enabled = true;
+            if (mi != null)
+            {
+                mi.Enabled = true;
+            }
         }
 
         #endregion Private helper methods for menu items
@@ -80,7 +90,11 @@ namespace WeekNumberLite2
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposing) return;
+            if (!disposing)
+            {
+                return;
+            }
+
             CleanupContextMenu();
         }
 

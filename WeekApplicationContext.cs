@@ -51,9 +51,12 @@ namespace WeekNumberLite2
         {
             get
             {
-                if (_timer != null) return _timer;
-                int calculatedInterval = 86400000 - ((DateTime.Now.Hour * 3600000) + (DateTime.Now.Minute * 60000) + (DateTime.Now.Second * 1000));
-                System.Windows.Forms.Timer timer = new() { Interval = calculatedInterval, Enabled = true };
+                if (_timer != null)
+                {
+                    return _timer;
+                }
+
+                System.Windows.Forms.Timer timer = new() { Interval = 10000, Enabled = true };
                 timer.Tick += OnTimerTick;
                 return timer;
             }
@@ -63,15 +66,25 @@ namespace WeekNumberLite2
 
         #region Private event handlers
 
-        private void OnApplicationExit(object? sender, EventArgs e) => Cleanup(false);
+        private void OnApplicationExit(object? sender, EventArgs e)
+        {
+            Cleanup(false);
+        }
 
         [SupportedOSPlatform("windows")]
-        private void OnTimerTick(object? sender, EventArgs e) => UpdateIcon();
+        private void OnTimerTick(object? sender, EventArgs e)
+        {
+            UpdateIcon();
+        }
 
         [SupportedOSPlatform("windows")]
         private void UpdateIcon()
         {
-            if (_currentWeek == Week.Current()) return;
+            if (_currentWeek == Week.Current())
+            {
+                return;
+            }
+
             _timer?.Stop();
             Application.DoEvents();
             try
@@ -102,7 +115,10 @@ namespace WeekNumberLite2
             _timer?.Dispose();
             Gui?.Dispose();
             Gui = null;
-            if (forceExit) Application.Exit();
+            if (forceExit)
+            {
+                Application.Exit();
+            }
         }
 
         #endregion Private methods

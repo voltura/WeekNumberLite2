@@ -41,8 +41,12 @@ namespace WeekNumberLite2
         [SupportedOSPlatform("windows")]
         internal static void CleanupIcon(ref Icon icon)
         {
-            if (icon is null) return;
-            NativeMethods.DestroyIcon(icon.Handle);
+            if (icon is null)
+            {
+                return;
+            }
+
+            _ = NativeMethods.DestroyIcon(icon.Handle);
             icon.Dispose();
         }
 
@@ -53,7 +57,11 @@ namespace WeekNumberLite2
         [SupportedOSPlatform("windows")]
         private static void DrawBackgroundOnGraphics(Graphics graphics, int size = 0)
         {
-            if (size == 0) size = _iconSize;
+            if (size == 0)
+            {
+                size = _iconSize;
+            }
+
             Color backgroundColor = Color.Black;
             Color foregroundColor = Color.LightGray;
             using SolidBrush foregroundBrush = new(foregroundColor);
@@ -61,7 +69,10 @@ namespace WeekNumberLite2
             float inset = (float)Math.Abs(size * .03125);
             graphics?.FillRectangle(backgroundBrush, inset, inset, size - inset, size - inset);
             using (Pen pen = new(foregroundColor, inset * 2))
-                graphics?.DrawRectangle(pen, inset, inset, size - inset * 2, size - inset * 2);
+            {
+                graphics?.DrawRectangle(pen, inset, inset, size - (inset * 2), size - (inset * 2));
+            }
+
             float leftInset = (float)Math.Abs(size * .15625);
             graphics?.FillRectangle(foregroundBrush, leftInset, inset / 2, inset * 3, inset * 5);
             float rightInset = (float)Math.Abs(size * .75);
@@ -71,7 +82,11 @@ namespace WeekNumberLite2
         [SupportedOSPlatform("windows")]
         private static void DrawWeekNumberLite2OnGraphics(int WeekNumberLite2, Graphics graphics, int size = 0)
         {
-            if (size == 0) size = _iconSize;
+            if (size == 0)
+            {
+                size = _iconSize;
+            }
+
             float fontSize = (float)Math.Abs(size * .78125);
             float insetX = (float)-(size > (int)IconSize.Icon16 ? Math.Abs(fontSize * .12) : Math.Abs(fontSize * .07));
             float insetY = (float)(size > (int)IconSize.Icon16 ? Math.Abs(fontSize * .2) : Math.Abs(fontSize * .08));

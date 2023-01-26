@@ -23,7 +23,11 @@ namespace WeekNumberLite2
         [SupportedOSPlatform("windows")]
         private static void Main()
         {
-            if (!Mutex.WaitOne(TimeSpan.Zero, true)) return;
+            if (!Mutex.WaitOne(TimeSpan.Zero, true))
+            {
+                return;
+            }
+
             WeekApplicationContext? context = null;
             try
             {
@@ -33,7 +37,10 @@ namespace WeekNumberLite2
                 Application.VisualStyleState = VisualStyleState.ClientAndNonClientAreasEnabled;
                 Application.SetCompatibleTextRenderingDefault(false);
                 context = new WeekApplicationContext();
-                if (context?.Gui != null) Application.Run(context);
+                if (context?.Gui != null)
+                {
+                    Application.Run(context);
+                }
             }
             finally
             {

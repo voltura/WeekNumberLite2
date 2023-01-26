@@ -19,12 +19,18 @@ namespace WeekNumberLite2.Forms
         ///     Set message to display in form
         /// </summary>
         /// <param name="messageText">Message text</param>
-        public void SetMessage(string messageText) => messageBox.Text = messageText;
+        public void SetMessage(string messageText)
+        {
+            messageBox.Text = messageText;
+        }
 
         /// <summary>
         ///     Set link to product URL
         /// </summary>
-        public void SetLink(string url) => Link.Text = url;
+        public void SetLink(string url)
+        {
+            Link.Text = url;
+        }
 
         #endregion
 
@@ -72,7 +78,7 @@ namespace WeekNumberLite2.Forms
         public static void DisplayMessage(string messageText)
         {
             using MessageForm message = new(messageText);
-            message.ShowDialog();
+            _ = message.ShowDialog();
         }
 
         /// <summary>
@@ -84,8 +90,12 @@ namespace WeekNumberLite2.Forms
         public static void DisplayMessage(string messageText, bool error = false)
         {
             using MessageForm message = new(messageText);
-            if (error) message.titleIcon.Image = SystemIcons.Exclamation.ToBitmap();
-            message.ShowDialog();
+            if (error)
+            {
+                message.titleIcon.Image = SystemIcons.Exclamation.ToBitmap();
+            }
+
+            _ = message.ShowDialog();
         }
 
         /// <summary>
@@ -95,7 +105,7 @@ namespace WeekNumberLite2.Forms
         public static void LogAndDisplayMessage(string messageText)
         {
             using MessageForm message = new(messageText);
-            message.ShowDialog();
+            _ = message.ShowDialog();
         }
 
         /// <summary>
@@ -107,20 +117,48 @@ namespace WeekNumberLite2.Forms
         {
             using MessageForm msgForm = new(messageText);
             msgForm.SetLink(url);
-            msgForm.ShowDialog();
+            _ = msgForm.ShowDialog();
         }
 
         #endregion
 
         #region Events handling
 
-        private void OK_Click(object sender, EventArgs e) => Close();
-        private void SettingsTitle_MouseDown(object sender, MouseEventArgs e) => UpdateOffset(e);
-        private void SettingsTitle_MouseMove(object sender, MouseEventArgs e) => MoveForm(e);
-        private void MinimizePanel_MouseEnter(object sender, EventArgs e) => FocusMinimizeIcon();
-        private void MinimizePanel_MouseLeave(object sender, EventArgs e) => UnfocusMinimizeIcon();
-        private void MinimizePanel_Click(object sender, EventArgs e) => Close();
-        private void MinimizePanelFrame_Click(object sender, EventArgs e) => Close();
+        private void OK_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void SettingsTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            UpdateOffset(e);
+        }
+
+        private void SettingsTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            MoveForm(e);
+        }
+
+        private void MinimizePanel_MouseEnter(object sender, EventArgs e)
+        {
+            FocusMinimizeIcon();
+        }
+
+        private void MinimizePanel_MouseLeave(object sender, EventArgs e)
+        {
+            UnfocusMinimizeIcon();
+        }
+
+        private void MinimizePanel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void MinimizePanelFrame_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void Link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             OpenUrl();
@@ -137,23 +175,36 @@ namespace WeekNumberLite2.Forms
             Text = lblMessageFormTitle.Text = Message.CAPTION;
         }
 
-        private void FocusMinimizeIcon() => minimizePanel.BackColor = Color.LightGray;
+        private void FocusMinimizeIcon()
+        {
+            minimizePanel.BackColor = Color.LightGray;
+        }
 
         private void MoveForm(MouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Left) return;
+            if (e.Button != MouseButtons.Left)
+            {
+                return;
+            }
+
             Top = Cursor.Position.Y - Offset.Y;
             Left = Cursor.Position.X - Offset.X;
         }
 
-        private void UpdateOffset(MouseEventArgs e) => Offset = new Point(e.X, e.Y);
+        private void UpdateOffset(MouseEventArgs e)
+        {
+            Offset = new Point(e.X, e.Y);
+        }
 
-        private void UnfocusMinimizeIcon() => minimizePanel.BackColor = Color.White;
+        private void UnfocusMinimizeIcon()
+        {
+            minimizePanel.BackColor = Color.White;
+        }
 
         private void OpenUrl()
         {
             using Process p = new() { StartInfo = new ProcessStartInfo { UseShellExecute = true, FileName = Link.Text } };
-            p.Start();
+            _ = p.Start();
         }
 
         #endregion

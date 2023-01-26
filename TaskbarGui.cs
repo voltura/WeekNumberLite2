@@ -37,7 +37,10 @@ namespace WeekNumberLite2
         /// </summary>
         /// <param name="weekNumber">The week number to display on icon</param>
         [SupportedOSPlatform("windows")]
-        public void UpdateIcon(int weekNumber) => UpdateIcon(weekNumber, ref _notifyIcon);
+        public void UpdateIcon(int weekNumber)
+        {
+            UpdateIcon(weekNumber, ref _notifyIcon);
+        }
 
         #endregion Public UpdateIcon method
 
@@ -52,7 +55,10 @@ namespace WeekNumberLite2
                 string longDateString = DateTime.Now.ToLongDateString();
                 const string SWEDISH_LONG_DATE_PREFIX_STRING = "den ";
                 if (Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish || longDateString.StartsWith(SWEDISH_LONG_DATE_PREFIX_STRING))
+                {
                     weekDayPrefix = Message.SWEDISH_DAY_OF_WEEK_PREFIX[(int)DateTime.Now.DayOfWeek];
+                }
+
                 if (notifyIcon != null)
                 {
                     notifyIcon.Text = $"{Resources.Week} {weekNumber}\r\n{weekDayPrefix}{DateTime.Now.ToLongDateString()}";
@@ -63,7 +69,10 @@ namespace WeekNumberLite2
             }
             finally
             {
-                if (_latestWeek != weekNumber) _latestWeek = weekNumber;
+                if (_latestWeek != weekNumber)
+                {
+                    _latestWeek = weekNumber;
+                }
             }
         }
 
@@ -71,7 +80,10 @@ namespace WeekNumberLite2
 
         #region Private helper property to create NotifyIcon
 
-        private static NotifyIcon GetNotifyIcon(ContextMenuStrip? contextMenu) => new() { Visible = true, ContextMenuStrip = contextMenu };
+        private static NotifyIcon GetNotifyIcon(ContextMenuStrip? contextMenu)
+        {
+            return new() { Visible = true, ContextMenuStrip = contextMenu };
+        }
 
         #endregion Private helper property to create NotifyIcon
 
@@ -90,7 +102,11 @@ namespace WeekNumberLite2
         [SupportedOSPlatform("windows")]
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposing) return;
+            if (!disposing)
+            {
+                return;
+            }
+
             CleanupNotifyIcon();
             _contextMenu.Dispose();
         }
@@ -98,11 +114,15 @@ namespace WeekNumberLite2
         [SupportedOSPlatform("windows")]
         private void CleanupNotifyIcon()
         {
-            if (_notifyIcon is null) return;
+            if (_notifyIcon is null)
+            {
+                return;
+            }
+
             _notifyIcon.Visible = false;
             if (_notifyIcon.Icon != null)
             {
-                NativeMethods.DestroyIcon(_notifyIcon.Icon.Handle);
+                _ = NativeMethods.DestroyIcon(_notifyIcon.Icon.Handle);
                 _notifyIcon.Icon?.Dispose();
             }
             _notifyIcon.ContextMenuStrip?.Items.Clear();

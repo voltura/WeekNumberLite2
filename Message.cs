@@ -21,7 +21,7 @@ namespace WeekNumberLite2
         [SupportedOSPlatform("windows")]
         internal static void Show(string text, Exception? ex = null)
         {
-            var message = ex is null ? text : $"{text}\r\n{ex}";
+            string message = ex is null ? text : $"{text}\r\n{ex}";
             Forms.MessageForm.DisplayMessage(message, ex is not null);
         }
 
