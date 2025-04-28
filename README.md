@@ -40,7 +40,6 @@ Press 'Run anyway' button
    
 ## Statistics
 [![Open issues](https://img.shields.io/github/issues/voltura/WeekNumberLite2)](https://github.com/voltura/WeekNumberLite2/issues)
-[![Pages Build Status](https://img.shields.io/github/actions/workflow/status/voltura/WeekNumberLite2/pages-build-deployment.yml?branch=main)](https://github.com/voltura/WeekNumberLite2/actions)
 [![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fvoltura.github.io%2FWeekNumberLite2%2F)]()
 
 [![Number of programming langauges](https://img.shields.io/github/languages/count/voltura/WeekNumberLite2)]()
@@ -49,7 +48,6 @@ Press 'Run anyway' button
 [![Number of repo forks](https://img.shields.io/github/forks/voltura/WeekNumberLite2)]()
 [![Number of repo stars](https://img.shields.io/github/stars/voltura/WeekNumberLite2)]()
 [![goto counter](https://img.shields.io/github/search/voltura/WeekNumberLite2/goto)]()
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fvoltura%2FWeekNumberLite2%2Fhit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)]()
 ![GitHub last commit](https://img.shields.io/github/last-commit/voltura/WeekNumberLite2?color=red)
 
 ![Visitors](https://estruyf-github.azurewebsites.net/api/VisitorHit?user=volturaf&repo=WeekNumberLite2&countColorcountColor&countColor=%235690f2)
