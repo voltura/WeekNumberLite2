@@ -40,7 +40,7 @@ Press 'Run anyway' button
    
 ## Statistics
 [![Open issues](https://img.shields.io/github/issues/voltura/WeekNumberLite2)](https://github.com/voltura/WeekNumberLite2/issues)
-[![Code Quality](https://img.shields.io/github/workflow/status/voltura/WeekNumberLite2/CodeQL)]()
+[![Pages Build Status](https://img.shields.io/github/actions/workflow/status/voltura/WeekNumberLite2/pages-build-deployment.yml?branch=main)](https://github.com/voltura/WeekNumberLite2/actions)
 [![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fvoltura.github.io%2FWeekNumberLite2%2F)]()
 
 [![Number of programming langauges](https://img.shields.io/github/languages/count/voltura/WeekNumberLite2)]()
