@@ -5,17 +5,17 @@
 
   <PropertyGroup>
 	<OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
     <UseWPF>False</UseWPF>
 	<Nullable>enable</Nullable>
     <UseWindowsForms>True</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <NeutralLanguage>en</NeutralLanguage>
     <Authors>Voltura AB</Authors>
-    <Copyright>Copyright 2022 Voltura AB</Copyright>
+    <Copyright>Copyright 2025 Voltura AB</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <StartupObject>WeekNumberLite2.Program</StartupObject>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
 	<PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
     <SelfContained>true</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
@@ -31,9 +31,10 @@
     <PackageIcon>WeekNumberLite2.png</PackageIcon>
     <RepositoryUrl>https://github.com/voltura/WeekNumberLite2</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <AssemblyVersion>1.0.0.5</AssemblyVersion>
-    <FileVersion>1.0.0.5</FileVersion>
+    <AssemblyVersion>1.0.0.6</AssemblyVersion>
+    <FileVersion>1.0.0.6</FileVersion>
     <PackageLicenseFile>C:\Users\Joakim\source\repos\WeekNumberLite2Modern\WeekNumberLite2Modern\LICENSE</PackageLicenseFile>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -67,6 +68,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Release Handling\GITHUB_ACCESS_TOKEN.bat" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Properties\weekicon.ico" />
   </ItemGroup>
 
@@ -92,7 +97,7 @@
 
   <ItemGroup>
     <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Update="Properties\WeekNumberLite2.bmp">

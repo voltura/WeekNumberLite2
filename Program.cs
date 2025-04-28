@@ -37,6 +37,7 @@ namespace WeekNumberLite2
                 Application.VisualStyleState = VisualStyleState.ClientAndNonClientAreasEnabled;
                 Application.SetCompatibleTextRenderingDefault(false);
                 context = new WeekApplicationContext();
+
                 if (context?.Gui != null)
                 {
                     Application.Run(context);

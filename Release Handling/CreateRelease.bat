@@ -27,7 +27,7 @@ IF "%SCRIPT_PARAMETER%" EQU "UP" SET "UPDATE_VER=TRUE" && SET "PUBLISH_REL=TRUE"
 SET "SCRIPT_DIR=%~dp0"
 SET "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
 SET "RELEASE_MANAGER=%SCRIPT_DIR%\ReleaseManager.bat"
-SET "PUBLISH_FOLDER=%SCRIPT_DIR%\..\bin\Release\net6.0-windows\win-x64\publish"
+SET "PUBLISH_FOLDER=%SCRIPT_DIR%\..\bin\Release\net8.0-windows10.0.17763.0\win-x64\publish"
 IF "%SCRIPT_PARAMETER%" EQU "" (
 	START "Release Manager" "%RELEASE_MANAGER%"
 	EXIT
@@ -58,7 +58,7 @@ SET "UPLOAD_URL="
 :: Tools
 :: ==========================
 SET "SEVEN_ZIP_FULLPATH=C:\Program Files\7-Zip\7z.exe"
-SET "MSBUILD_FULLPATH=C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe"
+SET "MSBUILD_FULLPATH=C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Current\Bin\MSBuild.exe"
 SET "FART=%SCRIPT_DIR%\..\Tools\fart.exe"
 SET "CURL=C:\Program Files\curl-7.81.0-win64-mingw\bin\curl.exe"
 
@@ -106,20 +106,12 @@ ECHO.>> "%PUBLISH_FOLDER%\%FILE_NAME%.MD5"
 CALL :DISP_MSG "Generated MD5 checksum file '%FILE_NAME%.MD5'." 0
 GOTO :EOF
 
-:COMPRESS_INSTALLER
-IF NOT EXIST "%SEVEN_ZIP_FULLPATH%" CALL :ERROR_MESSAGE_EXIT "Compress tool not found, cannot compress installer." 20
-CD /D %PUBLISH_FOLDER%
-"%SEVEN_ZIP_FULLPATH%" a -t7z -y WeekNumber_Lite_%VERSION%_Installer.7z WeekNumber_Lite_%VERSION%_Installer.exe WeekNumber_Lite_%VERSION%_Installer.exe.MD5 >NUL
-SET SEVEN_ZIP_RESULT=%ERRORLEVEL%
-CD /D %SCRIPT_DIR%
-IF "%SEVEN_ZIP_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to compress installer" %SEVEN_ZIP_RESULT%
-GOTO :EOF
-
 :COMPRESS_WeekNumber_Lite_2_ZIP
 CALL :DISP_MSG "Archiving WeekNumber Lite 2..." 0
 IF NOT EXIST "%SEVEN_ZIP_FULLPATH%" CALL :ERROR_MESSAGE_EXIT "7-zip not found '%SEVEN_ZIP_FULLPATH%', cannot compress installer." 30
 CD /D "%PUBLISH_FOLDER%"
-"%SEVEN_ZIP_FULLPATH%" a -tzip -y WeekNumberLite2.zip WeekNumberLite2.exe WeekNumberLite2.exe.MD5 >NUL
+"%SEVEN_ZIP_FULLPATH%" a -tzip -y WeekNumberLite2.zip WeekNumberLite2.exe WeekNumberLite2.exe.MD5 D3DCompiler_47_cor3.dll PenImc_cor3.dll PresentationNative_cor3.dll vcruntime140_cor3.dll wpfgfx_cor3.dll >NUL
+
 SET SEVEN_ZIP_RESULT=%ERRORLEVEL%
 CD /D "%SCRIPT_DIR%"
 IF "%SEVEN_ZIP_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "7-zip failed to generate 'WeekNumberLite_.zip'." %SEVEN_ZIP_RESULT%

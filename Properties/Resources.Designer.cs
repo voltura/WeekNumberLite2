@@ -63,7 +63,7 @@ namespace WeekNumberLite2.Properties {
         /// <summary>
         ///   Looks up a localized string similar to WeekNumber Lite 2 by Voltura AB
         ///
-        ///Copyright © Voltura AB 2022.
+        ///Copyright © Voltura AB 2025.
         /// </summary>
         public static string About {
             get {

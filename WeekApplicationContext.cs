@@ -1,6 +1,7 @@
 ﻿#region Using statements
 
 using System.Runtime.Versioning;
+using WeekNumberLite2.Forms;
 using WeekNumberLite2.Properties;
 
 #endregion
@@ -19,6 +20,7 @@ namespace WeekNumberLite2
 
         private readonly System.Windows.Forms.Timer? _timer;
         private int _currentWeek;
+        private readonly PowerBroadcastListener? _powerBroadcastListener;
 
         #endregion Private variables
 
@@ -33,6 +35,7 @@ namespace WeekNumberLite2
                 _currentWeek = Week.Current();
                 Gui = new TaskbarGui(_currentWeek);
                 _timer = GetTimer;
+                _powerBroadcastListener = new PowerBroadcastListener(UpdateIcon);
             }
             catch (Exception ex)
             {
@@ -87,6 +90,7 @@ namespace WeekNumberLite2
 
             _timer?.Stop();
             Application.DoEvents();
+
             try
             {
                 _currentWeek = Week.Current();
@@ -98,6 +102,7 @@ namespace WeekNumberLite2
                 Cleanup();
                 throw;
             }
+
             if (_timer != null)
             {
                 _timer.Interval = 10000;
@@ -113,6 +118,7 @@ namespace WeekNumberLite2
         {
             _timer?.Stop();
             _timer?.Dispose();
+            _powerBroadcastListener?.Dispose();
             Gui?.Dispose();
             Gui = null;
             if (forceExit)

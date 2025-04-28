@@ -90,6 +90,7 @@ namespace WeekNumberLite2.Forms
         public static void DisplayMessage(string messageText, bool error = false)
         {
             using MessageForm message = new(messageText);
+
             if (error)
             {
                 message.titleIcon.Image = SystemIcons.Exclamation.ToBitmap();

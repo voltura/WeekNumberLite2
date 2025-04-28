@@ -350,3 +350,4 @@ MigrationBackup/
 .ionide/
 GITHUB_ACCESS_TOKEN.bat
 /Tools/fart.exe
+/Release Handling/GITHUB_ACCESS_TOKEN.bat

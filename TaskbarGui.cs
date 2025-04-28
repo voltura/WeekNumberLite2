@@ -54,6 +54,7 @@ namespace WeekNumberLite2
                 string weekDayPrefix = string.Empty;
                 string longDateString = DateTime.Now.ToLongDateString();
                 const string SWEDISH_LONG_DATE_PREFIX_STRING = "den ";
+
                 if (Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish || longDateString.StartsWith(SWEDISH_LONG_DATE_PREFIX_STRING))
                 {
                     weekDayPrefix = Message.SWEDISH_DAY_OF_WEEK_PREFIX[(int)DateTime.Now.DayOfWeek];
@@ -62,9 +63,13 @@ namespace WeekNumberLite2
                 if (notifyIcon != null)
                 {
                     notifyIcon.Text = $"{Resources.Week} {weekNumber}\r\n{weekDayPrefix}{DateTime.Now.ToLongDateString()}";
-                    Icon prevIcon = notifyIcon.Icon;
+                    Icon? prevIcon = notifyIcon.Icon;
                     notifyIcon.Icon = WeekIcon.GetIcon(weekNumber);
-                    WeekIcon.CleanupIcon(ref prevIcon);
+
+                    if (prevIcon != null)
+                    {
+                        WeekIcon.CleanupIcon(ref prevIcon);
+                    }
                 }
             }
             finally

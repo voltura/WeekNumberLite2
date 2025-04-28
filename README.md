@@ -1,7 +1,7 @@
 🌍[English](README.md) ∙ [Svenska](README.sv-SE.md)
 
 # WeekNumber Lite 2
-Windows 11/10/8/7 system tray area application that displays the current week number.
+Windows 11/10 system tray area application that displays the current week number.
  [*Download latest release*](https://github.com/voltura/WeekNumberLite2/releases/latest/download/WeekNumberLite2.exe) 
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumberLite2/total.svg)]()

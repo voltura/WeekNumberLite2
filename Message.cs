@@ -11,7 +11,7 @@ namespace WeekNumberLite2
     {
         #region Internal readonly strings
 
-        internal static readonly string[] SWEDISH_DAY_OF_WEEK_PREFIX = { "Söndagen ", "Måndagen ", "Tisdagen ", "Onsdagen ", "Torsdagen ", "Fredagen ", "Lördagen " };
+        internal static readonly string[] SWEDISH_DAY_OF_WEEK_PREFIX = ["Söndagen ", "Måndagen ", "Tisdagen ", "Onsdagen ", "Torsdagen ", "Fredagen ", "Lördagen "];
         internal static readonly string CAPTION = $"{Resources.ProductName} {Resources.Version} {Application.ProductVersion}";
 
         #endregion Internal readonly strings
