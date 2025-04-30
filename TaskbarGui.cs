@@ -30,7 +30,7 @@ namespace WeekNumberLite2
 
         #endregion Constructor
 
-        #region Public UpdateIcon method
+        #region Public UpdateIcon methods
 
         /// <summary>
         /// Updates icon on GUI with given week number
@@ -42,9 +42,15 @@ namespace WeekNumberLite2
             UpdateIcon(weekNumber, ref _notifyIcon);
         }
 
-        #endregion Public UpdateIcon method
+        [SupportedOSPlatform("windows")]
+        public void UpdateTooltip(int weekNumber)
+        {
+            UpdateTooltip(weekNumber, ref _notifyIcon);
+        }
 
-        #region Private UpdateIcon method
+        #endregion Public UpdateIcon methods
+
+        #region Private UpdateIcon methods
 
         [SupportedOSPlatform("windows")]
         private void UpdateIcon(int weekNumber, ref NotifyIcon? notifyIcon)
@@ -81,7 +87,25 @@ namespace WeekNumberLite2
             }
         }
 
-        #endregion Private UpdateIcon method
+        [SupportedOSPlatform("windows")]
+        private static void UpdateTooltip(int weekNumber, ref NotifyIcon? notifyIcon)
+        {
+            string weekDayPrefix = string.Empty;
+            string longDateString = DateTime.Now.ToLongDateString();
+            const string SWEDISH_LONG_DATE_PREFIX_STRING = "den ";
+
+            if (Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish || longDateString.StartsWith(SWEDISH_LONG_DATE_PREFIX_STRING))
+            {
+                weekDayPrefix = Message.SWEDISH_DAY_OF_WEEK_PREFIX[(int)DateTime.Now.DayOfWeek];
+            }
+
+            if (notifyIcon != null)
+            {
+                notifyIcon.Text = $"{Resources.Week} {weekNumber}\r\n{weekDayPrefix}{DateTime.Now.ToLongDateString()}";
+            }
+        }
+
+        #endregion Private UpdateIcon methods
 
         #region Private helper property to create NotifyIcon
 

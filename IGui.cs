@@ -12,6 +12,12 @@
         void UpdateIcon(int weekNumber);
 
         /// <summary>
+        /// Updates tooltip on GUI with given week number
+        /// </summary>
+        /// <param name="weekNumber"></param>
+        void UpdateTooltip(int weekNumber);
+
+        /// <summary>
         /// Disposes GUI
         /// </summary>
         void Dispose();

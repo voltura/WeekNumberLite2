@@ -20,7 +20,6 @@ namespace WeekNumberLite2
 
         private readonly System.Windows.Forms.Timer? _timer;
         private int _currentWeek;
-        private readonly PowerBroadcastListener? _powerBroadcastListener;
 
         #endregion Private variables
 
@@ -35,7 +34,6 @@ namespace WeekNumberLite2
                 _currentWeek = Week.Current();
                 Gui = new TaskbarGui(_currentWeek);
                 _timer = GetTimer;
-                _powerBroadcastListener = new PowerBroadcastListener(UpdateIcon);
             }
             catch (Exception ex)
             {
@@ -83,25 +81,39 @@ namespace WeekNumberLite2
         [SupportedOSPlatform("windows")]
         private void UpdateIcon()
         {
-            if (_currentWeek == Week.Current())
-            {
-                return;
-            }
-
             _timer?.Stop();
             Application.DoEvents();
 
-            try
+            if (_currentWeek == Week.Current())
             {
-                _currentWeek = Week.Current();
-                Gui?.UpdateIcon(_currentWeek);
+                try
+                {
+                    _currentWeek = Week.Current();
+                    Gui?.UpdateTooltip(_currentWeek);
+                }
+                catch (Exception ex)
+                {
+                    Message.Show(Resources.FailedToSetIcon, ex);
+                    Cleanup();
+                    throw;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Message.Show(Resources.FailedToSetIcon, ex);
-                Cleanup();
-                throw;
+                try
+                {
+                    _currentWeek = Week.Current();
+                    Gui?.UpdateIcon(_currentWeek);
+                }
+                catch (Exception ex)
+                {
+                    Message.Show(Resources.FailedToSetIcon, ex);
+                    Cleanup();
+                    throw;
+                }
             }
+
+            Application.DoEvents();
 
             if (_timer != null)
             {
@@ -118,7 +130,6 @@ namespace WeekNumberLite2
         {
             _timer?.Stop();
             _timer?.Dispose();
-            _powerBroadcastListener?.Dispose();
             Gui?.Dispose();
             Gui = null;
             if (forceExit)
