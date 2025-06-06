@@ -1,6 +1,7 @@
 ﻿#region Using statements
 
 using System.Runtime;
+using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.Windows.Forms.VisualStyles;
 using WeekNumberLite2.Properties;
@@ -16,6 +17,10 @@ namespace WeekNumberLite2
         private static readonly Mutex Mutex = new(true, "88D1C6E0-96C8-4BB3-BA08-ACEFDC90A023");
 
         #endregion Private variable to allow only one instance of application
+
+        [DllImport("user32.dll")]
+        private static extern bool SetProcessDpiAwarenessContext(IntPtr dpiFlag);
+        private static readonly IntPtr DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2 = new(-4);
 
         #region Application starting point
 
@@ -34,6 +39,7 @@ namespace WeekNumberLite2
                 AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
                 SetGCSettings();
                 Application.EnableVisualStyles();
+                SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
                 Application.VisualStyleState = VisualStyleState.ClientAndNonClientAreasEnabled;
                 Application.SetCompatibleTextRenderingDefault(false);
                 context = new WeekApplicationContext();
