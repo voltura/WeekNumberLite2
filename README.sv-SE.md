@@ -1,6 +1,15 @@
 🌍[English](README.md) ∙ [Svenska](README.sv-SE.md)
 
 # WeekNumber Lite 2
+
+> [!IMPORTANT]
+> **WeekNumber Lite 2 har ersatts av [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber).**
+> Jag kommer inte längre att utveckla den här gamla appen WeekNumber Lite 2. Inga fler funktioner eller buggfixar kommer att släppas här; utvecklingen fortsätter i Voltura WeekNumber.
+>
+> **[Ladda ner Voltura WeekNumber för Windows](https://github.com/voltura/voltura-weeknumber/releases/latest)** · [Besök det nya projektet](https://github.com/voltura/voltura-weeknumber)
+
+Dokumentationen nedan beskriver den gamla appen och finns kvar för befintliga användare.
+
 Windows 11/10 systemfältsapplikation som visar aktuellt veckonummer
 
 <img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumberLite2" width="150" height="150" /> ![image](https://user-images.githubusercontent.com/2292809/121431601-e8451780-c979-11eb-9734-f30304c348d1.png)
@@ -17,11 +26,13 @@ Aktuellt veckonummer visas som en ikon i systemfältet i Windows aktivitetsfält
 <img width="175" alt="image" src="https://user-images.githubusercontent.com/2292809/169479743-3d64a051-a138-44bb-a2e6-e66c0a061032.png">
 
 
-## Installation
-Ladda ner WeekNumberLite2.exe och kör för starta applikationen.
+## Installation av den gamla appen
+För nya installationer, använd [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber/releases/latest).
+
+Om du fortfarande behöver den gamla appen, ladda ner [WeekNumberLite2.exe](https://github.com/voltura/WeekNumberLite2/releases/latest/download/WeekNumberLite2.exe) och kör filen för att starta appen.
 
 ## Donationer
-*- WeekNumber Lite 2 är fullständigt gratis och öppen källkod. Donationer uppskattas!*
+Om du har nytta av apparna får du gärna stödja utvecklingen av [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber).
 
 [![Donate](https://img.shields.io/badge/donate_via-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG) __⟵__ _**Tryck här för att donera!**_
    

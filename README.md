@@ -1,8 +1,17 @@
 🌍[English](README.md) ∙ [Svenska](README.sv-SE.md)
 
 # WeekNumber Lite 2
+
+> [!IMPORTANT]
+> **WeekNumber Lite 2 has been replaced by [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber).**
+> I will no longer develop this old WeekNumber Lite 2 app. There will be no further features or bug fixes here; development continues in Voltura WeekNumber.
+>
+> **[Download Voltura WeekNumber for Windows](https://github.com/voltura/voltura-weeknumber/releases/latest)** · [Visit the new project](https://github.com/voltura/voltura-weeknumber)
+
+The documentation below describes the old app and is kept for existing users.
+
 Windows 11/10 system tray area application that displays the current week number.
- [*Download latest release*](https://github.com/voltura/WeekNumberLite2/releases/latest/download/WeekNumberLite2.exe) 
+ [**Download Voltura WeekNumber**](https://github.com/voltura/voltura-weeknumber/releases/latest)
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumberLite2/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
@@ -18,8 +27,10 @@ Always see the current week number in the system tray area in Windows taskbar.
 <img width="175" alt="image" src="https://user-images.githubusercontent.com/2292809/169479743-3d64a051-a138-44bb-a2e6-e66c0a061032.png">
 
 
-## Installation
-Download WeekNumberLite2.exe and run to start.
+## Legacy installation
+For new installations, use [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber/releases/latest).
+
+If you still need the old app, download [WeekNumberLite2.exe](https://github.com/voltura/WeekNumberLite2/releases/latest/download/WeekNumberLite2.exe) and run it to start.
 
 ### Run notes
 Press 'More info' link
@@ -32,7 +43,7 @@ Press 'Run anyway' button
 
 
 ## Donations
-*- WeekNumber Lite 2 is completely free and open source. Donations are very much appreciated!*
+If you find these apps useful, consider supporting development of [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber).
 
 [![Donate](https://img.shields.io/badge/donate_via-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG) __⟵__ _**Press here to donate!**_
 
